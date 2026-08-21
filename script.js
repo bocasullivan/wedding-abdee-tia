@@ -1,6 +1,13 @@
 const opening = document.querySelector('#opening');
 const content = document.querySelector('#siteContent');
+
+// Do not restore the visitor's previous scroll position after a page refresh.
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+
 document.querySelector('#openInvitation').addEventListener('click', () => {
+  window.scrollTo(0, 0);
   opening.classList.add('is-hidden');
   content.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = '';
