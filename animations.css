@@ -145,36 +145,3 @@
     transform: none;
   }
 }
-
-/* Full-screen gallery: every original photo remains fully visible. */
-.gallery.section {
-  max-width: none;
-  padding-inline: 0;
-}
-
-.gallery .section__intro {
-  padding-inline: max(6vw, 1.5rem);
-}
-
-.gallery-grid {
-  display: block;
-}
-
-.gallery-item,
-.gallery-item--wide,
-.gallery-item--large {
-  display: flex;
-  width: 100%;
-  min-height: 100svh;
-  margin: 0;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: #261d18;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100svh;
-  object-fit: contain;
-}
