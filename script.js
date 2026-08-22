@@ -1,5 +1,12 @@
 const opening = document.querySelector('#opening');
 const content = document.querySelector('#siteContent');
+const gallery = document.querySelector('#gallery');
+
+// The gallery is available only through the private invitation URL below.
+// This is intentional link-based access, not server-side photo protection.
+const galleryAccessKey = 'n8Vq4mZ2rL7xK9dP5sW1cH6jT3yF0aB';
+const hasGalleryAccess = new URLSearchParams(window.location.search).get('k') === galleryAccessKey;
+if (!hasGalleryAccess) gallery?.remove();
 
 // Do not restore the visitor's previous scroll position after a page refresh.
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
