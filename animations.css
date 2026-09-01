@@ -18,6 +18,7 @@
 /* Phone-first refinements: comfortable type scale and touch targets. */
 @media (max-width: 480px) {
   .opening h1, .hero h1 { font-size: clamp(3.1rem, 17vw, 4.5rem); }
+  .hero blockquote { font-size: 1rem; }
   .hero blockquote { font-size: .82rem; }
   .section__intro { margin-bottom: 2.35rem; }
   .section h2 { font-size: 2.25rem; }
@@ -43,27 +44,13 @@
   .gallery-item:hover img { transform: none; filter: none; }
 }
 
-/* A proportionate collage: one landscape focal point with four portrait moments. */
-.gallery { max-width: 960px; }
-.gallery-grid {
-  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
-  gap: 1.5rem;
-  align-items: center;
-}
-.gallery-portraits {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-.gallery-item { overflow: hidden; }
+/* Preserve the original proportions of the couple's photos. */
+.gallery { max-width: 1000px; }
+.gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; }
+.gallery-item { overflow: visible; }
 .gallery-item--large { grid-row: auto; }
-.gallery-item img { display: block; width: 100%; height: auto; }
+.gallery-item img { display: block; width: 100%; height: auto; object-fit: contain; }
 .gallery-item:hover img { transform: none; }
-
-@media (max-width: 720px) {
-  .gallery-grid { grid-template-columns: 1fr; gap: .65rem; }
-  .gallery-portraits { gap: .65rem; }
-}
 
 .event-grid--single { grid-template-columns: minmax(0, 560px); }
 .event-card--single { padding: 3.35rem 2rem; }
