@@ -147,6 +147,12 @@
   .gift::before { left: -190px; }
 }
 
+@media (max-width: 720px) {
+  .event-grid--single {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal--up, .reveal--left, .reveal--right {
     transition: none;
