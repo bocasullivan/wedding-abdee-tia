@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="animations.css" />
   </head>
   <body>
+    <audio id="weddingMusic" loop preload="auto">
+      <source src="assets/LaguWebWedding.mp3" type="audio/mpeg" />
+    </audio>
+
     <div class="opening" id="opening" aria-modal="true" role="dialog">
       <div class="opening__ornament ornament ornament--top"></div>
       <p class="eyebrow">The Wedding Of</p>
@@ -118,6 +122,24 @@
         <div class="footer__content reveal"><p class="eyebrow eyebrow--light">Thank you</p><h2>Terima kasih atas doa dan kehadiran Anda</h2><p>Abdee <span>&amp;</span> Tia</p><small class="footer__copyright">ByCode©2026 - All Rights Reserved</small></div>
       </footer>
     </main>
+    <button
+      class="music-toggle"
+      id="musicToggle"
+      type="button"
+      aria-label="Putar musik"
+      aria-pressed="false">
+      <span class="music-toggle__disc">
+        <span class="music-toggle__center"></span>
+      </span>
+    </button>
+
+    <dialog class="lightbox" id="lightbox">
+      <button class="lightbox__close" aria-label="Tutup foto">×</button>
+      <img src="" alt="Galeri undangan" />
+    </dialog>
+
+    <script src="script.js"></script>
+
     <dialog class="lightbox" id="lightbox"><button class="lightbox__close" aria-label="Tutup foto">×</button><img src="" alt="Galeri undangan" /></dialog>
     <script src="script.js"></script>
   </body>

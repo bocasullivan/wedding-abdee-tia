@@ -13,11 +13,48 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
 window.addEventListener('pageshow', () => window.scrollTo(0, 0));
 
-document.querySelector('#openInvitation').addEventListener('click', () => {
+const music = document.querySelector('#weddingMusic');
+const musicToggle = document.querySelector('#musicToggle');
+
+document.querySelector('#openInvitation').addEventListener('click', async () => {
   window.scrollTo(0, 0);
+
   opening.classList.add('is-hidden');
   content.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = '';
+
+  try {
+    await music.play();
+
+    musicToggle.classList.add('is-visible');
+    musicToggle.classList.add('is-playing');
+    musicToggle.setAttribute('aria-label', 'Jeda musik');
+    musicToggle.setAttribute('aria-pressed', 'true');
+  } catch (error) {
+    console.log('Musik tidak dapat diputar:', error);
+
+    musicToggle.classList.add('is-visible');
+  }
+});
+
+musicToggle.addEventListener('click', async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+
+      musicToggle.classList.add('is-playing');
+      musicToggle.setAttribute('aria-label', 'Jeda musik');
+      musicToggle.setAttribute('aria-pressed', 'true');
+    } catch (error) {
+      console.log('Musik tidak dapat diputar:', error);
+    }
+  } else {
+    music.pause();
+
+    musicToggle.classList.remove('is-playing');
+    musicToggle.setAttribute('aria-label', 'Putar musik');
+    musicToggle.setAttribute('aria-pressed', 'false');
+  }
 });
 
 const eventDate = new Date('2026-09-12T13:00:00+07:00').getTime();
